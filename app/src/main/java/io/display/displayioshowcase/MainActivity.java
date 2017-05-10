@@ -1,6 +1,7 @@
 package io.display.displayioshowcase;
 
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -30,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         configureToolbar((Toolbar)findViewById(R.id.display_toolbar), "Display.io");
 
         configurePager();
+
+        setUpTabIcons();
     }
 
     protected void configureToolbar(Toolbar toolbar, String title) {
@@ -52,14 +55,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setUpTabIcons() {
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.pager_tab);
 
+        tabLayout.setupWithViewPager(mPager);
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_close_white);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_action_info);
+        tabLayout.getTabAt(2).setIcon(R.drawable.ic_close_white);
+        tabLayout.getTabAt(3).setIcon(R.drawable.ic_close_white);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
-        setUpTabIcons();
         return true;
     }
 
