@@ -1,0 +1,110 @@
+apply plugin: 'com.android.library'
+
+version='1.3.11'
+android {
+    compileSdkVersion 25
+    buildToolsVersion '25.0.0'
+
+    defaultConfig {
+        minSdkVersion 9
+        targetSdkVersion 23
+        versionCode 1
+        versionName version
+    }
+
+    lintOptions{
+        abortOnError false
+    }
+    buildTypes {
+        debug{
+            minifyEnabled false
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+    }
+    sourceSets {
+        main {
+            java {
+                srcDir 'src/java'
+            }
+            resources {
+                srcDir 'src/resources'
+            }
+        }
+    }
+
+    defaultPublishConfig "devDebug"
+    publishNonDefault true
+    productFlavors {
+        staging {
+            versionName version + "-st"
+            buildConfigField 'String', 'BASE_URL', '"https://marketplace.staging.display.io"'
+            buildConfigField "boolean", "IS_DEBUG", "true"
+        }
+        prod {
+            versionName version
+            buildConfigField 'String', 'BASE_URL', '"https://appsrv.display.io/srv"'
+            buildConfigField "boolean", "IS_DEBUG", "false"
+        }
+        dev {
+            versionName version + "-dev"
+            buildConfigField 'String', 'BASE_URL', '"https://appsrv.displayio.local/srv?XDEBUG_SESSION_START=netbeans-xdebug"'
+            buildConfigField "boolean", "IS_DEBUG", "true"
+        }
+    }
+
+}
+
+task makeJar (type: Copy) {
+    from("build/intermediates/bundles/prodRelease")
+    into('build/')
+    include('classes.jar')
+    rename('classes.jar', "io.display.sdk-${version}.jar")
+    println "Copying..."
+    from("build/outputs/aar/")
+    into('build/')
+    include('sdk-prod-release.aar')
+    rename('sdk-prod-release.aar', "io.display.sdk-${version}.aar")
+}
+
+task makeDebugJar(type: Copy) {
+    from("build/intermediates/bundles/debug/")
+    into('build/')
+    include('classes.jar')
+    rename('classes.jar', "io.display.sdk-debug-${version}.jar")
+
+    from("build/outputs/aar/")
+    into('build/')
+    include('sdk-prod-debug.aar')
+    rename('sdk-debug.aar', "io.display.sdk-${version}.aar")
+}
+
+task clearJar(type: Delete) {
+    delete("build/io.display.sdk-${version}.aar")
+    delete("build/io.display.sdk-${version}.jar")
+}
+
+makeJar.dependsOn(clearJar, build)
+
+dependencies {
+    provided 'com.android.support:appcompat-v7:25.+'
+    provided 'com.android.support:support-v4:25.+'
+    provided files('libs/unityBridge.jar')
+}
+
+
+task buildUnity(type: Zip, dependsOn: [clean, build]) {
+    println project.dependencies
+    build.mustRunAfter 'clean'
+    destinationDir buildDir
+    archiveName("AndroidUnitySdk-" + project(':sdk').version + ".zip")
+    from("build/outputs/aar")
+    include('sdk-prod-release.aar')
+    rename('sdk-prod-release.aar', 'io.display.unitysdk.aar')
+    from("res/")
+    include('DisplaySdk.cs')
+
+}
