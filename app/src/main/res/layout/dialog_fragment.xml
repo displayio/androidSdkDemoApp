@@ -11,7 +11,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_margin="20dp"
-        android:src="@drawable/ic_displayio"
+        android:src="@drawable/display_io_logo_white"
         android:textAppearance="?android:attr/textAppearanceLarge">
     </ImageView>
 
@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
-        android:layout_margin="20dp"
+        android:layout_marginStart="20dp"
         android:textStyle="bold"
         android:textSize="26sp"
         android:text="About"
@@ -30,10 +30,10 @@
 
     <ImageView
         android:id="@+id/close_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:src="@drawable/ic_action_ic_close"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:padding="8dp"
+        android:src="@drawable/ic_close_white"
         android:layout_alignParentEnd="true"
         android:textAppearance="?android:attr/textAppearanceLarge">
     </ImageView>
@@ -42,7 +42,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/about"
-        android:text="sample_text">
+        android:layout_margin="10dp"
+        android:textSize="18sp"
+        android:gravity="center_vertical|start"
+        android:text="Display.io is an Android Monetization platform connecting to mobile app developers via SDK or API.
+        \n\nThrough our audience network, we are able to target valuable cohorts of users who spend both time and money in our advertisers apps.
+        \n\nPublishers using our SDK will benefit from higher eCPMs and higher user-LTVs from through our crisp, targeted, rich-media ad formats.">
 
     </TextView>
 </RelativeLayout>

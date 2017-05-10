@@ -17,7 +17,7 @@ public class SplashDisplay extends AppCompatActivity {
                 .withHeaderText("Display")
                 .withFooterText("(C) Display.io")
                 .withBeforeLogoText("Display.io")
-                .withLogo(R.drawable.ic_displayio)
+                .withLogo(R.drawable.display_io_logo_white)
                 .withAfterLogoText("Some more details")
                 .create()
         );

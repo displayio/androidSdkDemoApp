@@ -2,7 +2,6 @@ package io.display.displayioshowcase.fragments;
 
 import android.support.v4.app.Fragment;
 import android.view.View;
-import android.widget.Button;
 
 import io.display.displayioshowcase.JsonStubs;
 import io.display.displayioshowcase.R;
@@ -36,17 +35,15 @@ public class InterstitialVideoFragment extends BaseFragment implements PagerProv
     @Override
     public void onLoad(View view) {
         initController(new JsonStubs().getInterstitialVideoJsonStub());
-        Button button = (Button)getActivity().findViewById(R.id.interstitialVideoBtn);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                displayAd(PLACEMENT_ID);
-            }
-        });
+        setItemsList(view);
     }
 
     @Override
     public String getPlacementId() {
         return PLACEMENT_ID;
+    }
+
+    public int getRvItemsList(){
+        return R.id.list_video_items;
     }
 }

@@ -2,7 +2,6 @@ package io.display.displayioshowcase.fragments;
 
 import android.support.v4.app.Fragment;
 import android.view.View;
-import android.widget.Button;
 
 import io.display.displayioshowcase.BuildConfig;
 import io.display.displayioshowcase.JsonStubs;
@@ -14,6 +13,8 @@ import io.display.displayioshowcase.R;
 
 public class InterstitialStaticFragment extends BaseFragment implements PagerProvider {
     private static final String PLACEMENT_ID = "111";
+
+
     @Override
     public Fragment getInstance() {
         return this;
@@ -37,17 +38,20 @@ public class InterstitialStaticFragment extends BaseFragment implements PagerPro
     @Override
     public void onLoad(View view) {
         initController(new JsonStubs().getInterstitialStaticJsonStub());
-        Button button = (Button)getActivity().findViewById(R.id.interstitialStaticBtn);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                displayAd(PLACEMENT_ID);
-            }
-        });
+
+        setItemsList(view);
     }
 
     @Override
     public String getPlacementId() {
         return PLACEMENT_ID;
+    }
+
+    public interface ItemClickListener{
+        void onCLicked();
+    }
+
+    public int getRvItemsList(){
+        return R.id.list_static_items;
     }
 }

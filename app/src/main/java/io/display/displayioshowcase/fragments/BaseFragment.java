@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import io.display.displayioshowcase.EntriesRVAdapter;
+import io.display.displayioshowcase.ListRvAdapter;
 import io.display.displayioshowcase.R;
 import io.display.sdk.Controller;
 import io.display.sdk.DioSdkException;
@@ -33,6 +34,8 @@ public abstract class BaseFragment extends Fragment{
     protected EntriesRVAdapter mRVAdapter;
     protected RecyclerView rvList;
     protected LinearLayoutManager mLinearLM;
+    protected ArrayList<Integer> rvListItems;
+    protected ListRvAdapter rvAdapter;
 
     @Nullable
     @Override
@@ -56,6 +59,25 @@ public abstract class BaseFragment extends Fragment{
         } catch (DioSdkException e) {
             e.printStackTrace();
         }
+    }
+
+    protected void setItemsList(View view) {
+        rvList = (RecyclerView) view.findViewById(getRvItemsList());
+
+        rvListItems = createItemsList();
+        mLinearLM = new GridLayoutManager(getContext(), 1);
+
+        rvAdapter = new ListRvAdapter(rvListItems);
+        rvAdapter.setOnItemClickListener(new InterstitialStaticFragment.ItemClickListener() {
+            @Override
+            public void onCLicked() {
+                displayAd(getPlacementId());
+            }
+        });
+
+        rvList.setLayoutManager(new GridLayoutManager(getActivity(), 3));
+
+        rvList.setAdapter(rvAdapter);
     }
 
     protected void setList(View view) {
@@ -119,6 +141,23 @@ public abstract class BaseFragment extends Fragment{
         return mFeedItems;
     }
 
+    protected ArrayList<Integer> createItemsList() {
+        rvListItems = new ArrayList<>();
+        rvListItems.add(R.drawable.interstital_static_1);
+        rvListItems.add(R.drawable.interstital_static_1);
+        rvListItems.add(R.drawable.interstital_static_1);
+        rvListItems.add(R.drawable.interstital_static_1);
+        rvListItems.add(R.drawable.interstital_static_1);
+        rvListItems.add(R.drawable.interstital_static_1);
+        rvListItems.add(R.drawable.interstital_static_1);
+        rvListItems.add(R.drawable.interstital_static_1);
+        rvListItems.add(R.drawable.interstital_static_1);
+        rvListItems.add(R.drawable.interstital_static_1);
+        rvListItems.add(R.drawable.interstital_static_1);
+        rvListItems.add(R.drawable.interstital_static_1);
+        return rvListItems;
+    }
+
     protected abstract int layoutId();
 
     public abstract String getFragmentTitle();
@@ -127,11 +166,15 @@ public abstract class BaseFragment extends Fragment{
 
     public abstract String getPlacementId();
 
-    public int getAdPosition(){
+    protected int getAdPosition(){
         return 0;
     };
 
     protected int getRvList(){
         return 0;
     };
+
+    protected int getRvItemsList() {
+        return 0;
+    }
 }

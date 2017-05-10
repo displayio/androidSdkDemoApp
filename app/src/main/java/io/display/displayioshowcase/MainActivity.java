@@ -46,15 +46,20 @@ public class MainActivity extends AppCompatActivity {
     private void configurePager() {
         List<PagerProvider> mProviderList = new FragmentList().getFragments();
 
-        homePageAdapter = new DisplayPageAdapter(getSupportFragmentManager(), mProviderList);
+        homePageAdapter = new DisplayPageAdapter(getSupportFragmentManager(), mProviderList, this);
         mPager.setOffscreenPageLimit(mProviderList.size());
         mPager.setAdapter(homePageAdapter);
+    }
+
+    private void setUpTabIcons() {
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
+        setUpTabIcons();
         return true;
     }
 
