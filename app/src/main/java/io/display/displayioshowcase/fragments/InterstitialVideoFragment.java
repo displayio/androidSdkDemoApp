@@ -4,7 +4,6 @@ import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.Button;
 
-import io.display.displayioshowcase.BuildConfig;
 import io.display.displayioshowcase.JsonStubs;
 import io.display.displayioshowcase.R;
 
@@ -13,6 +12,7 @@ import io.display.displayioshowcase.R;
  */
 
 public class InterstitialVideoFragment extends BaseFragment implements PagerProvider  {
+    private static final String PLACEMENT_ID = "112";
     @Override
     public Fragment getInstance() {
         return this;
@@ -20,7 +20,7 @@ public class InterstitialVideoFragment extends BaseFragment implements PagerProv
 
     @Override
     public void displayAd() {
-        ctrl.showAd(getActivity(), BuildConfig.INTERSTITIAL_PLACEMENT);
+        ctrl.showAd(getActivity(), PLACEMENT_ID);
     }
 
     @Override
@@ -35,13 +35,18 @@ public class InterstitialVideoFragment extends BaseFragment implements PagerProv
 
     @Override
     public void onLoad(View view) {
-        initController("112", new JsonStubs().getInterstitialVideoJsonStub());
+        initController(new JsonStubs().getInterstitialVideoJsonStub());
         Button button = (Button)getActivity().findViewById(R.id.interstitialVideoBtn);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                displayAd("112");
+                displayAd(PLACEMENT_ID);
             }
         });
+    }
+
+    @Override
+    public String getPlacementId() {
+        return PLACEMENT_ID;
     }
 }

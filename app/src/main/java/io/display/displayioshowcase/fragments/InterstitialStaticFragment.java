@@ -13,7 +13,7 @@ import io.display.displayioshowcase.R;
  */
 
 public class InterstitialStaticFragment extends BaseFragment implements PagerProvider {
-
+    private static final String PLACEMENT_ID = "111";
     @Override
     public Fragment getInstance() {
         return this;
@@ -36,13 +36,18 @@ public class InterstitialStaticFragment extends BaseFragment implements PagerPro
 
     @Override
     public void onLoad(View view) {
-        initController("111", new JsonStubs().getInterstitialStaticJsonStub());
+        initController(new JsonStubs().getInterstitialStaticJsonStub());
         Button button = (Button)getActivity().findViewById(R.id.interstitialStaticBtn);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                displayAd("111");
+                displayAd(PLACEMENT_ID);
             }
         });
+    }
+
+    @Override
+    public String getPlacementId() {
+        return PLACEMENT_ID;
     }
 }

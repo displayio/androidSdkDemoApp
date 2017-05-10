@@ -3,12 +3,21 @@ package io.display.displayioshowcase.fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import io.display.displayioshowcase.EntriesRVAdapter;
+import io.display.displayioshowcase.R;
 import io.display.sdk.Controller;
 import io.display.sdk.DioSdkException;
 import io.display.sdk.Placement;
@@ -20,6 +29,10 @@ import io.display.sdk.Placement;
 public abstract class BaseFragment extends Fragment{
 
     protected Controller ctrl;
+    protected ArrayList<Object[]> mFeedItems;
+    protected EntriesRVAdapter mRVAdapter;
+    protected RecyclerView rvList;
+    protected LinearLayoutManager mLinearLM;
 
     @Nullable
     @Override
@@ -33,16 +46,32 @@ public abstract class BaseFragment extends Fragment{
         onLoad(view);
     }
 
-    protected void initController(String placementId, JSONObject jsonObject) {
+    protected void initController(JSONObject jsonObject) {
         ctrl = Controller.getInstance();
         ctrl.forceInit(getActivity());
         try {
-            ctrl.placements.put(placementId, new Placement(placementId));
-            Placement plcm = ctrl.placements.get(placementId);
+            ctrl.placements.put(getPlacementId(), new Placement(getPlacementId()));
+            Placement plcm = ctrl.placements.get(getPlacementId());
             plcm.setup(jsonObject);
         } catch (DioSdkException e) {
             e.printStackTrace();
         }
+    }
+
+    protected void setList(View view) {
+        rvList = (RecyclerView) view.findViewById(getRvList());
+
+        mFeedItems = createList();
+        mFeedItems = insertAds(mFeedItems, getAdPosition());
+        mLinearLM = new GridLayoutManager(getContext(), 1);
+
+        mRVAdapter = new EntriesRVAdapter(getActivity(), mFeedItems, getDefaultPlacementMapping());
+
+        rvList.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        rvList.setAdapter(mRVAdapter);
+
+        setListDivider();
     }
 
     protected void displayAd(String placementId) {
@@ -50,9 +79,59 @@ public abstract class BaseFragment extends Fragment{
             ctrl.showAd(getActivity(), placementId);
     }
 
+    protected ArrayList<Object[]> insertAds(ArrayList<Object[]> mFeedItems, int position) {
+        if (mFeedItems.size() >= position)
+            mFeedItems.add(position, new Object[]{"1", "2", R.drawable.infeed_static_1});
+        return mFeedItems;
+    }
+
+    protected void setListDivider() {
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getActivity(), mLinearLM.getOrientation());
+        rvList.addItemDecoration(dividerItemDecoration);
+    }
+
+    protected HashMap<Integer, String> getDefaultPlacementMapping() {
+        HashMap<Integer, String> mPlcMap = new HashMap<>();
+        mPlcMap.put(getAdPosition(), getPlacementId());
+        return mPlcMap;
+    }
+
+    protected ArrayList<Object[]> createList() {
+        mFeedItems = new ArrayList<>();
+        mFeedItems.add(new Object[]{"US Unemployment Falls to Pre-Crisis Low", "Tories Set for Biggest Local Election Win in Decades", R.drawable.img_1});
+        mFeedItems.add(new Object[]{"Tories Set for Biggest Local Election Win in Decades", "Tories Set for Biggest Local Election Win in Decades", R.drawable.img_2});
+        mFeedItems.add(new Object[]{"Traders Vote Macron as Le Pen Vows to Wipe the Smiles Off Their Faces", "Traders Vote Macron as Le Pen Vows to Wipe the Smiles Off Their Faces", R.drawable.img_3});
+        mFeedItems.add(new Object[]{"Brexit bickering: EU’s Juncker says he’ll stop ‘speaking English’ because it’s losing importance", "Brexit bickering: EU’s Juncker says he’ll stop ‘speaking English’ because it’s losing importance", R.drawable.img_4});
+        mFeedItems.add(new Object[]{"1st large Chinese-made passenger jet C919 takes flight, seeks to rival Boeing & Airbus", "1st large Chinese-made passenger jet C919 takes flight, seeks to rival Boeing & Airbus", R.drawable.img_5});
+
+        mFeedItems.add(new Object[]{"US Unemployment Falls to Pre-Crisis Low", "Tories Set for Biggest Local Election Win in Decades", R.drawable.img_1});
+        mFeedItems.add(new Object[]{"Tories Set for Biggest Local Election Win in Decades", "Tories Set for Biggest Local Election Win in Decades", R.drawable.img_2});
+        mFeedItems.add(new Object[]{"Traders Vote Macron as Le Pen Vows to Wipe the Smiles Off Their Faces", "Traders Vote Macron as Le Pen Vows to Wipe the Smiles Off Their Faces", R.drawable.img_3});
+        mFeedItems.add(new Object[]{"Brexit bickering: EU’s Juncker says he’ll stop ‘speaking English’ because it’s losing importance", "Brexit bickering: EU’s Juncker says he’ll stop ‘speaking English’ because it’s losing importance", R.drawable.img_4});
+        mFeedItems.add(new Object[]{"1st large Chinese-made passenger jet C919 takes flight, seeks to rival Boeing & Airbus", "1st large Chinese-made passenger jet C919 takes flight, seeks to rival Boeing & Airbus", R.drawable.img_5});
+
+        mFeedItems.add(new Object[]{"US Unemployment Falls to Pre-Crisis Low", "Tories Set for Biggest Local Election Win in Decades", R.drawable.img_1});
+        mFeedItems.add(new Object[]{"Tories Set for Biggest Local Election Win in Decades", "Tories Set for Biggest Local Election Win in Decades", R.drawable.img_2});
+        mFeedItems.add(new Object[]{"Traders Vote Macron as Le Pen Vows to Wipe the Smiles Off Their Faces", "Traders Vote Macron as Le Pen Vows to Wipe the Smiles Off Their Faces", R.drawable.img_3});
+        mFeedItems.add(new Object[]{"Brexit bickering: EU’s Juncker says he’ll stop ‘speaking English’ because it’s losing importance", "Brexit bickering: EU’s Juncker says he’ll stop ‘speaking English’ because it’s losing importance", R.drawable.img_4});
+        mFeedItems.add(new Object[]{"1st large Chinese-made passenger jet C919 takes flight, seeks to rival Boeing & Airbus", "1st large Chinese-made passenger jet C919 takes flight, seeks to rival Boeing & Airbus", R.drawable.img_5});
+
+        return mFeedItems;
+    }
+
     protected abstract int layoutId();
 
     public abstract String getFragmentTitle();
 
     public abstract void onLoad(View view);
+
+    public abstract String getPlacementId();
+
+    public int getAdPosition(){
+        return 0;
+    };
+
+    protected int getRvList(){
+        return 0;
+    };
 }

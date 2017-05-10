@@ -1,14 +1,11 @@
 package io.display.sdk.ads;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.view.View;
 
 import org.json.JSONObject;
 
-import io.display.sdk.DioGenericActivity;
 import io.display.sdk.DioSdkException;
 import io.display.sdk.ads.components.Banner;
 import io.display.sdk.ads.components.Container;
@@ -55,7 +52,6 @@ public class InFeed {
             player.setFeature(VideoPlayer.FEATURE_CONTINUOUS, true);
         }
     }
-
 
     class InFeedHouseVideo extends HouseVideoAd implements InfeedAdInterface {
         protected void setVideoFeatures() {

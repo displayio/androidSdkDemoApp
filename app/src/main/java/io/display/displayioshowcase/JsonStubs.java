@@ -107,4 +107,39 @@ public class JsonStubs {
             return null;
         }
     }
+
+    public JSONObject getInfeedVideoJsonStub() {
+        try {
+            return new JSONObject(
+                    "{\n" +
+                            "\t\t\t\t\"name\": \"TestingPlacement\",\n" +
+                            "\t\t\t\t\"status\": \"enabled\",\n" +
+                            "\t\t\t\t\"ads\": [{\n" +
+                            "\t\t\t\t\t\"adId\": \"IV_ef51adce01b7685ac3cb38d299e22ee8\",\n" +
+                            "\t\t\t\t\t\"ad\": {\n" +
+                            "\t\t\t\t\t\t\"type\": \"infeed\",\n" +
+                            "\t\t\t\t\t\t\"subtype\": \"video\",\n" +
+                            "\t\t\t\t\t\t\"data\": {\n" +
+                            "\t\t\t\t\t\t\t\"clk\": \"https:\\/\\/play.google.com/store/apps/details?id=com.buzi.phonecleaner\",\n" +
+                            "\t\t\t\t\t\t\t\"imp\": \"https:\\/\\/appsrv.display.io\\/imp?msessId=5912bc018884c&tls=18916546_67_3\",\n" +
+                            "\t\t\t\t\t\t\t\"video\": \"infeed_video_1_no_landing_card\",\n" +
+                            "\t\t\t\t\t\t\t\"duration\": 15,\n" +
+                            "\t\t\t\t\t\t\t\"landingCard\": \"http:\\/\\/cdn.display.io\\/ctv\\/asset\\/interstitial_video_landing.png\",\n" +
+                            "\t\t\t\t\t\t\t\"vwidth\": 480,\n" +
+                            "\t\t\t\t\t\t\t\"vheight\": 320\n" +
+                            "\t\t\t\t\t\t}\n" +
+                            "\t\t\t\t\t},\n" +
+                            "\t\t\t\t\t\"offering\": {\n" +
+                            "\t\t\t\t\t\t\"type\": \"app\",\n" +
+                            "\t\t\t\t\t\t\"cpn\": 3402675,\n" +
+                            "\t\t\t\t\t\t\"id\": \"\"\n" +
+                            "\t\t\t\t\t}\n" +
+                            "\t\t\t\t}]\n" +
+                            "\t\t\t}}");
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

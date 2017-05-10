@@ -25,10 +25,10 @@ import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 public class EntriesRVAdapter extends RecyclerView.Adapter<EntriesRVAdapter.BaseHolder> {
     private Context context;
     private static final int AD_ITEM = 0;
-    private static final int SIMPLE_ITEM = 1;
+    private static final int FIRST_ITEM = 1;
+    private static final int SIMPLE_ITEM = 2;
     HashMap<Integer, String> mPlacementPositions = new HashMap<>();
     private HashMap<Integer, Object[]> mAdsMap = new HashMap<>();
-
     private ArrayList<Object[]> itemsList;
 
     public EntriesRVAdapter(Context context, ArrayList<Object[]> itemsList, HashMap<Integer, String> defaultPlacementMapping) {
@@ -43,6 +43,10 @@ public class EntriesRVAdapter extends RecyclerView.Adapter<EntriesRVAdapter.Base
         BaseHolder holder;
 
         switch (viewType) {
+            case FIRST_ITEM:
+                adView = (RelativeLayout) LayoutInflater.from(parent.getContext()).inflate(R.layout.item_entry_list_first, null);
+                holder = new FirstItemViewHolder(adView);
+                break;
             case AD_ITEM:
                 adView = (RelativeLayout) LayoutInflater.from(parent.getContext()).inflate(R.layout.ad_list_item, null);
                 holder = new AdHolder(adView);
@@ -72,6 +76,7 @@ public class EntriesRVAdapter extends RecyclerView.Adapter<EntriesRVAdapter.Base
                 });
                 break;
             case SIMPLE_ITEM:
+            case FIRST_ITEM:
                 holder.titleTextView.setText((String)itemsList.get(position)[0]);
                 holder.descriptionTextView.setText((String)itemsList.get(position)[1]);
                 holder.mainImgView.setImageResource((int)itemsList.get(position)[2]);
@@ -114,7 +119,6 @@ public class EntriesRVAdapter extends RecyclerView.Adapter<EntriesRVAdapter.Base
         holder.itemView.setLayoutParams(rlParams);
     }
 
-
     private void displayAd(AdHolder holder, View adView, Integer adHeight) {
         if (adView != null) {
             if (adView.getParent() != null)
@@ -132,7 +136,9 @@ public class EntriesRVAdapter extends RecyclerView.Adapter<EntriesRVAdapter.Base
 
     @Override
     public int getItemViewType(int position) {
-        if (mPlacementPositions.containsKey(position))
+        if(position == 0)
+            return FIRST_ITEM;
+        else if (mPlacementPositions.containsKey(position))
             return AD_ITEM;
         else
             return SIMPLE_ITEM;
@@ -140,6 +146,12 @@ public class EntriesRVAdapter extends RecyclerView.Adapter<EntriesRVAdapter.Base
 
     private static class AdHolder extends BaseHolder {
         AdHolder(View itemView) {
+            super(itemView);
+        }
+    }
+
+    private static class FirstItemViewHolder extends BaseHolder {
+        FirstItemViewHolder(View itemView) {
             super(itemView);
         }
     }
