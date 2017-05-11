@@ -33,13 +33,16 @@ public class Banner extends Component {
 
     FileLoader imgLoader;
     String imgUrl;
-    int res;
+    protected int res;
 
     public Banner() {
 
     }
     public void setUrl(String url) {
         imgUrl = url;
+    }
+    public void setVideoResource(String resName) {
+        this.res = Controller.getInstance().getContext().getResources().getIdentifier(resName, "raw", Controller.getInstance().getContext().getPackageName());
     }
     public void setResource(String res) {
         this.res = Controller.getInstance().getContext().getResources().getIdentifier(res, "drawable", Controller.getInstance().getContext().getPackageName());
@@ -67,7 +70,6 @@ public class Banner extends Component {
                     if (onPreloadErrorListener != null) {
                         onPreloadErrorListener.onPreloadError();
                     }
-
                 }
             });
             imgLoader.exec();

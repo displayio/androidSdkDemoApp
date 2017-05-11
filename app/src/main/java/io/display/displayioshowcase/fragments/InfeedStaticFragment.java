@@ -3,6 +3,9 @@ package io.display.displayioshowcase.fragments;
 import android.support.v4.app.Fragment;
 import android.view.View;
 
+import org.json.JSONObject;
+
+import io.display.displayioshowcase.InterstitialAd;
 import io.display.displayioshowcase.JsonStubs;
 import io.display.displayioshowcase.R;
 
@@ -19,13 +22,13 @@ public class InfeedStaticFragment extends BaseFragment implements PagerProvider{
         return this;
     }
 
-    @Override
-    public void displayAd() {
-        ctrl.showAd(getActivity(), PLACEMENT_ID);
-    }
-
     protected int getRvList() {
         return R.id.recycler_static_view;
+    }
+
+    @Override
+    protected JSONObject getAdJson(InterstitialAd item) {
+        return null;
     }
 
     @Override
@@ -40,7 +43,7 @@ public class InfeedStaticFragment extends BaseFragment implements PagerProvider{
 
     @Override
     public void onLoad(View view) {
-        initController(new JsonStubs().getInfeedStaticJsonStub());
+        initController(getPlacementId(), new JsonStubs().getInfeedStaticJsonStub());
         setList(view);
     }
 
@@ -52,5 +55,10 @@ public class InfeedStaticFragment extends BaseFragment implements PagerProvider{
     @Override
     public String getPlacementId() {
         return PLACEMENT_ID;
+    }
+
+    @Override
+    public int getTabIcon() {
+        return R.drawable.ic_tab_infeed_gray;
     }
 }

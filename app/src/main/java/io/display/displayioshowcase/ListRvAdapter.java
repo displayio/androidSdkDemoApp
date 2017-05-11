@@ -15,10 +15,10 @@ import io.display.displayioshowcase.fragments.InterstitialStaticFragment;
  */
 
 public class ListRvAdapter extends RecyclerView.Adapter<ListRvAdapter.BaseHolder>{
-    private ArrayList<Integer> items;
+    private ArrayList<InterstitialAd> items;
     private InterstitialStaticFragment.ItemClickListener itemClickListener;
 
-    public ListRvAdapter(ArrayList<Integer> items){
+    public ListRvAdapter(ArrayList<InterstitialAd> items){
         this.items = items;
     }
 
@@ -34,7 +34,7 @@ public class ListRvAdapter extends RecyclerView.Adapter<ListRvAdapter.BaseHolder
 
     @Override
     public void onBindViewHolder(BaseHolder holder, int position) {
-        holder.mainImgView.setImageResource(items.get(position));
+        holder.mainImgView.setImageResource(items.get(position).getTileRes());
     }
 
     @Override
@@ -51,9 +51,13 @@ public class ListRvAdapter extends RecyclerView.Adapter<ListRvAdapter.BaseHolder
                 @Override
                 public void onClick(View v) {
                     if(itemClickListener != null)
-                        itemClickListener.onCLicked();
+                        itemClickListener.onClicked(getItem(getAdapterPosition()));
                 }
             });
+        }
+
+        private InterstitialAd getItem(int adapterPosition) {
+            return items.get(adapterPosition);
         }
     }
 }

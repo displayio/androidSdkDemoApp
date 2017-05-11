@@ -88,6 +88,10 @@ public class FileLoader {
 //        return uri;
         return Uri.parse("android.resource://" + Controller.getInstance().getContext().getPackageName() + "/" + R.raw.interstitial_video_1_landscape_no_landing_card);
     }
+
+    public Uri getResUri(){
+        return Uri.parse("android.resource://" + Controller.getInstance().getContext().getPackageName() + "/" + fileRes);
+    }
     class PreloadFileTask extends AsyncTask<String, String, Boolean> {
 
 

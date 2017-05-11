@@ -40,18 +40,7 @@ public class DisplayPageAdapter extends FragmentPagerAdapter{
 
     @Override
     public CharSequence getPageTitle(int position) {
-        Drawable myDrawable = ContextCompat.getDrawable(context, R.drawable.ic_action_ic_close);
-        String text = getItem(position).getFragmentTitle();
-        SpannableStringBuilder sb = new SpannableStringBuilder("   " + text); // space added before text for convenience
-        try {
-            myDrawable.setBounds(5, 5, myDrawable.getIntrinsicWidth(), myDrawable.getIntrinsicHeight());
-            ImageSpan span = new ImageSpan(myDrawable, DynamicDrawableSpan.ALIGN_BASELINE);
-            sb.setSpan(span, 0, 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        } catch (Exception e) {
-//            // TODO: handle exception
-        }
-
-        return sb;
+        return getItem(position).getFragmentTitle();
     }
 
     public List<PagerProvider> getFragmentProviderList(){

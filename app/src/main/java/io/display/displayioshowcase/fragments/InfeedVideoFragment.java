@@ -3,7 +3,9 @@ package io.display.displayioshowcase.fragments;
 import android.support.v4.app.Fragment;
 import android.view.View;
 
-import io.display.displayioshowcase.BuildConfig;
+import org.json.JSONObject;
+
+import io.display.displayioshowcase.InterstitialAd;
 import io.display.displayioshowcase.JsonStubs;
 import io.display.displayioshowcase.R;
 
@@ -21,13 +23,13 @@ public class InfeedVideoFragment extends BaseFragment implements PagerProvider {
         return this;
     }
 
-    @Override
-    public void displayAd() {
-        ctrl.showAd(getActivity(), BuildConfig.INTERSTITIAL_PLACEMENT);
-    }
-
     protected int getRvList() {
         return R.id.recycler_view;
+    }
+
+    @Override
+    protected JSONObject getAdJson(InterstitialAd item) {
+        return null;
     }
 
     @Override
@@ -42,7 +44,7 @@ public class InfeedVideoFragment extends BaseFragment implements PagerProvider {
 
     @Override
     public void onLoad(View view) {
-        initController(new JsonStubs().getInfeedVideoJsonStub());
+        initController(getPlacementId(), new JsonStubs().getInfeedVideoJsonStub());
         setList(view);
     }
 
@@ -54,5 +56,10 @@ public class InfeedVideoFragment extends BaseFragment implements PagerProvider {
     @Override
     public String getPlacementId() {
         return PLACEMENT_ID;
+    }
+
+    @Override
+    public int getTabIcon() {
+        return R.drawable.ic_tab_infeed_gray;
     }
 }

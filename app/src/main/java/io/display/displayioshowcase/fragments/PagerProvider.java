@@ -8,5 +8,4 @@ import android.support.v4.app.Fragment;
 
 public interface PagerProvider  {
     Fragment getInstance();
-    void displayAd();
 }

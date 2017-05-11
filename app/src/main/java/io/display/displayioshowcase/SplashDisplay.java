@@ -14,11 +14,7 @@ public class SplashDisplay extends AppCompatActivity {
             .withFullScreen()
                 .withTargetActivity(MainActivity.class)
                 .withSplashTimeOut(3000)
-                .withHeaderText("Display")
-                .withFooterText("(C) Display.io")
-                .withBeforeLogoText("Display.io")
                 .withLogo(R.drawable.display_io_logo_white)
-                .withAfterLogoText("Some more details")
                 .create()
         );
     }

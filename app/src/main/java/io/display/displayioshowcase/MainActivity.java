@@ -12,6 +12,7 @@ import android.view.MenuItem;
 
 import java.util.List;
 
+import io.display.displayioshowcase.fragments.BaseFragment;
 import io.display.displayioshowcase.fragments.DisplayPageAdapter;
 import io.display.displayioshowcase.fragments.FragmentList;
 import io.display.displayioshowcase.fragments.InfoDialog;
@@ -20,6 +21,7 @@ import io.display.displayioshowcase.fragments.PagerProvider;
 public class MainActivity extends AppCompatActivity {
     private DisplayPageAdapter homePageAdapter;
     private ViewPager mPager;
+    private List<PagerProvider> mProviderList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +33,6 @@ public class MainActivity extends AppCompatActivity {
         configureToolbar((Toolbar)findViewById(R.id.display_toolbar), "Display.io");
 
         configurePager();
-
-        setUpTabIcons();
     }
 
     protected void configureToolbar(Toolbar toolbar, String title) {
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void configurePager() {
-        List<PagerProvider> mProviderList = new FragmentList().getFragments();
+        mProviderList = new FragmentList().getFragments();
 
         homePageAdapter = new DisplayPageAdapter(getSupportFragmentManager(), mProviderList, this);
         mPager.setOffscreenPageLimit(mProviderList.size());
@@ -56,18 +56,19 @@ public class MainActivity extends AppCompatActivity {
 
     private void setUpTabIcons() {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.pager_tab);
-
-        tabLayout.setupWithViewPager(mPager);
-        tabLayout.getTabAt(0).setIcon(R.drawable.ic_close_white);
-        tabLayout.getTabAt(1).setIcon(R.drawable.ic_action_info);
-        tabLayout.getTabAt(2).setIcon(R.drawable.ic_close_white);
-        tabLayout.getTabAt(3).setIcon(R.drawable.ic_close_white);
+        if(tabLayout.getTabCount() > 0) {
+            for (int i = 0; i < mProviderList.size(); i++) {
+                BaseFragment frag = homePageAdapter.getItem(i);
+                tabLayout.getTabAt(i).setIcon(frag.getTabIcon());
+            }
+        }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
+        setUpTabIcons();
         return true;
     }
 

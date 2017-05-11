@@ -12,7 +12,6 @@ import java.io.File;
 
 import io.display.sdk.Controller;
 import io.display.sdk.DioSdkException;
-import io.display.sdk.R;
 import io.display.sdk.ads.Ad;
 import io.display.sdk.ads.components.Banner;
 import io.display.sdk.ads.components.VideoPlayer;
@@ -34,7 +33,8 @@ public abstract class HouseVideoAd  extends Ad {
                 setMultiLoadElmCount(2);
                 String url = data.getString("landingCard");
                 landingCard = new Banner();
-                landingCard.setUrl(url);
+//                landingCard.setUrl(url);
+                landingCard.setResource(url);
                 landingCard.setOnPreloadErrorListener(new Banner.OnPreloadErrorListener() {
                     @Override
                     public void onPreloadError() {
@@ -64,7 +64,7 @@ public abstract class HouseVideoAd  extends Ad {
 
         try {
 //            videoLoader = new FileLoader(getVideoAdUrl());
-            videoLoader = new FileLoader(getVideoAdRes());
+            videoLoader = new FileLoader(getVideoAdRawRes(getVideoAdUrl()));
             videoLoader.setListener(new FileLoader.OnLoadedListener() {
                 @Override
                 public void onLoaded() {
@@ -87,8 +87,8 @@ public abstract class HouseVideoAd  extends Ad {
     protected String getVideoAdUrl(){
         return data.optString("video");
     }
-    protected int getVideoAdRes(){
-        return R.raw.interstitial_video_1_landscape_no_landing_card;
+    protected int getVideoAdRawRes(String rawResName){
+        return Controller.getInstance().getContext().getResources().getIdentifier(rawResName, "raw", Controller.getInstance().getContext().getPackageName());
     }
     protected abstract void setLandingCardFeatures();
     protected abstract void setVideoFeatures();
@@ -115,7 +115,7 @@ public abstract class HouseVideoAd  extends Ad {
         player = new VideoPlayer();
         setVideoFeatures();
         player.render(context);
-        player.start(videoLoader.getUri(), getDuration());
+        player.start(videoLoader.getResUri(), getDuration());
         callImpBeacon();
         videoLoader.getUri();
 

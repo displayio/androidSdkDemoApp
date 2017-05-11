@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import io.display.displayioshowcase.EntriesRVAdapter;
+import io.display.displayioshowcase.InterstitialAd;
 import io.display.displayioshowcase.ListRvAdapter;
 import io.display.displayioshowcase.R;
 import io.display.sdk.Controller;
@@ -34,7 +35,7 @@ public abstract class BaseFragment extends Fragment{
     protected EntriesRVAdapter mRVAdapter;
     protected RecyclerView rvList;
     protected LinearLayoutManager mLinearLM;
-    protected ArrayList<Integer> rvListItems;
+    protected ArrayList<InterstitialAd> rvListItems;
     protected ListRvAdapter rvAdapter;
 
     @Nullable
@@ -49,12 +50,12 @@ public abstract class BaseFragment extends Fragment{
         onLoad(view);
     }
 
-    protected void initController(JSONObject jsonObject) {
+    protected void initController(String placementId, JSONObject jsonObject) {
         ctrl = Controller.getInstance();
         ctrl.forceInit(getActivity());
         try {
-            ctrl.placements.put(getPlacementId(), new Placement(getPlacementId()));
-            Placement plcm = ctrl.placements.get(getPlacementId());
+            ctrl.placements.put(placementId, new Placement(placementId));
+            Placement plcm = ctrl.placements.get(placementId);
             plcm.setup(jsonObject);
         } catch (DioSdkException e) {
             e.printStackTrace();
@@ -70,12 +71,13 @@ public abstract class BaseFragment extends Fragment{
         rvAdapter = new ListRvAdapter(rvListItems);
         rvAdapter.setOnItemClickListener(new InterstitialStaticFragment.ItemClickListener() {
             @Override
-            public void onCLicked() {
-                displayAd(getPlacementId());
+            public void onClicked(InterstitialAd item) {
+                initController(item.getPlacementId(), getAdJson(item));
+                displayAd(item.getPlacementId());
             }
         });
 
-        rvList.setLayoutManager(new GridLayoutManager(getActivity(), 3));
+        rvList.setLayoutManager(new GridLayoutManager(getActivity(), 2));
 
         rvList.setAdapter(rvAdapter);
     }
@@ -103,7 +105,7 @@ public abstract class BaseFragment extends Fragment{
 
     protected ArrayList<Object[]> insertAds(ArrayList<Object[]> mFeedItems, int position) {
         if (mFeedItems.size() >= position)
-            mFeedItems.add(position, new Object[]{"1", "2", R.drawable.infeed_static_1});
+            mFeedItems.add(position, new Object[]{"1", "2", R.drawable.infeed_static});
         return mFeedItems;
     }
 
@@ -141,23 +143,6 @@ public abstract class BaseFragment extends Fragment{
         return mFeedItems;
     }
 
-    protected ArrayList<Integer> createItemsList() {
-        rvListItems = new ArrayList<>();
-        rvListItems.add(R.drawable.interstital_static_1);
-        rvListItems.add(R.drawable.interstital_static_1);
-        rvListItems.add(R.drawable.interstital_static_1);
-        rvListItems.add(R.drawable.interstital_static_1);
-        rvListItems.add(R.drawable.interstital_static_1);
-        rvListItems.add(R.drawable.interstital_static_1);
-        rvListItems.add(R.drawable.interstital_static_1);
-        rvListItems.add(R.drawable.interstital_static_1);
-        rvListItems.add(R.drawable.interstital_static_1);
-        rvListItems.add(R.drawable.interstital_static_1);
-        rvListItems.add(R.drawable.interstital_static_1);
-        rvListItems.add(R.drawable.interstital_static_1);
-        return rvListItems;
-    }
-
     protected abstract int layoutId();
 
     public abstract String getFragmentTitle();
@@ -166,8 +151,16 @@ public abstract class BaseFragment extends Fragment{
 
     public abstract String getPlacementId();
 
+    public abstract int getTabIcon();
+
+    protected abstract JSONObject getAdJson(InterstitialAd item);
+
     protected int getAdPosition(){
         return 0;
+    };
+
+    protected ArrayList<InterstitialAd> createItemsList(){
+        return null;
     };
 
     protected int getRvList(){
