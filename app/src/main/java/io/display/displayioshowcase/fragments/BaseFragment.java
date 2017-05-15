@@ -16,6 +16,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import io.display.displayioshowcase.Ads;
 import io.display.displayioshowcase.EntriesRVAdapter;
 import io.display.displayioshowcase.InterstitialAd;
 import io.display.displayioshowcase.ListRvAdapter;
@@ -122,25 +123,7 @@ public abstract class BaseFragment extends Fragment{
 
     protected ArrayList<Object[]> createList() {
         mFeedItems = new ArrayList<>();
-        mFeedItems.add(new Object[]{"US Unemployment Falls to Pre-Crisis Low", "Tories Set for Biggest Local Election Win in Decades", R.drawable.img_1});
-        mFeedItems.add(new Object[]{"Tories Set for Biggest Local Election Win in Decades", "Tories Set for Biggest Local Election Win in Decades", R.drawable.img_2});
-        mFeedItems.add(new Object[]{"Traders Vote Macron as Le Pen Vows to Wipe the Smiles Off Their Faces", "Traders Vote Macron as Le Pen Vows to Wipe the Smiles Off Their Faces", R.drawable.img_3});
-        mFeedItems.add(new Object[]{"Brexit bickering: EU’s Juncker says he’ll stop ‘speaking English’ because it’s losing importance", "Brexit bickering: EU’s Juncker says he’ll stop ‘speaking English’ because it’s losing importance", R.drawable.img_4});
-        mFeedItems.add(new Object[]{"1st large Chinese-made passenger jet C919 takes flight, seeks to rival Boeing & Airbus", "1st large Chinese-made passenger jet C919 takes flight, seeks to rival Boeing & Airbus", R.drawable.img_5});
-
-        mFeedItems.add(new Object[]{"US Unemployment Falls to Pre-Crisis Low", "Tories Set for Biggest Local Election Win in Decades", R.drawable.img_1});
-        mFeedItems.add(new Object[]{"Tories Set for Biggest Local Election Win in Decades", "Tories Set for Biggest Local Election Win in Decades", R.drawable.img_2});
-        mFeedItems.add(new Object[]{"Traders Vote Macron as Le Pen Vows to Wipe the Smiles Off Their Faces", "Traders Vote Macron as Le Pen Vows to Wipe the Smiles Off Their Faces", R.drawable.img_3});
-        mFeedItems.add(new Object[]{"Brexit bickering: EU’s Juncker says he’ll stop ‘speaking English’ because it’s losing importance", "Brexit bickering: EU’s Juncker says he’ll stop ‘speaking English’ because it’s losing importance", R.drawable.img_4});
-        mFeedItems.add(new Object[]{"1st large Chinese-made passenger jet C919 takes flight, seeks to rival Boeing & Airbus", "1st large Chinese-made passenger jet C919 takes flight, seeks to rival Boeing & Airbus", R.drawable.img_5});
-
-        mFeedItems.add(new Object[]{"US Unemployment Falls to Pre-Crisis Low", "Tories Set for Biggest Local Election Win in Decades", R.drawable.img_1});
-        mFeedItems.add(new Object[]{"Tories Set for Biggest Local Election Win in Decades", "Tories Set for Biggest Local Election Win in Decades", R.drawable.img_2});
-        mFeedItems.add(new Object[]{"Traders Vote Macron as Le Pen Vows to Wipe the Smiles Off Their Faces", "Traders Vote Macron as Le Pen Vows to Wipe the Smiles Off Their Faces", R.drawable.img_3});
-        mFeedItems.add(new Object[]{"Brexit bickering: EU’s Juncker says he’ll stop ‘speaking English’ because it’s losing importance", "Brexit bickering: EU’s Juncker says he’ll stop ‘speaking English’ because it’s losing importance", R.drawable.img_4});
-        mFeedItems.add(new Object[]{"1st large Chinese-made passenger jet C919 takes flight, seeks to rival Boeing & Airbus", "1st large Chinese-made passenger jet C919 takes flight, seeks to rival Boeing & Airbus", R.drawable.img_5});
-
-        return mFeedItems;
+        return mFeedItems = Ads.getInfeedItemsList(mFeedItems);
     }
 
     protected abstract int layoutId();

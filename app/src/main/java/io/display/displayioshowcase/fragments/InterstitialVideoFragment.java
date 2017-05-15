@@ -9,6 +9,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import io.display.displayioshowcase.InterstitialAd;
+import io.display.displayioshowcase.Ads;
 import io.display.displayioshowcase.JsonStubs;
 import io.display.displayioshowcase.R;
 
@@ -30,7 +31,7 @@ public class InterstitialVideoFragment extends BaseFragment implements PagerProv
 
     @Override
     public String getFragmentTitle() {
-        return "Interstitial video";
+        return "IS video";
     }
 
     @Override
@@ -49,7 +50,7 @@ public class InterstitialVideoFragment extends BaseFragment implements PagerProv
 
     @Override
     public int getTabIcon() {
-        return R.drawable.ic_tab_interstitial_gray;
+        return R.drawable.tab_interstitial_selector;
     }
 
     @Override
@@ -69,12 +70,6 @@ public class InterstitialVideoFragment extends BaseFragment implements PagerProv
 
     protected ArrayList<InterstitialAd> createItemsList() {
         rvListItems = new ArrayList<>();
-        rvListItems.add(InterstitialAd.from("ic_landing_1", "1121", R.drawable.tile_1, "video_1", "480", "320"));
-        rvListItems.add(InterstitialAd.from("ic_landing_2", "1122", R.drawable.tile_2, "video_2", "480", "320"));
-        rvListItems.add(InterstitialAd.from("ic_landing_3", "1123", R.drawable.tile_3, "video_3", "480", "320"));
-        rvListItems.add(InterstitialAd.from("ic_landing_4", "1124", R.drawable.tile_4, "video_4", "480", "320"));
-        rvListItems.add(InterstitialAd.from("ic_landing_5", "1125", R.drawable.tile_5, "video_5", "480", "320"));
-        rvListItems.add(InterstitialAd.from("ic_landing_6", "1126", R.drawable.tile_6, "video_6", "480", "320"));
-        return rvListItems;
+        return rvListItems = Ads.getInterstitialVideoItems(rvListItems);
     }
 }

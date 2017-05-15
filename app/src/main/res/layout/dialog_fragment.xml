@@ -11,7 +11,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_margin="20dp"
-        android:src="@drawable/display_io_logo_white"
+        android:src="@drawable/display_io_black_logo"
         android:textAppearance="?android:attr/textAppearanceLarge">
     </ImageView>
 

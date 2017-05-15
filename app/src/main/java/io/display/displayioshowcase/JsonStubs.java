@@ -78,29 +78,48 @@ public class JsonStubs {
     public JSONObject getInfeedStaticJsonStub() {
         try {
             return new JSONObject(
-                    "{" +
-                            "\t\t\"name\": \"Interstitial\",\n" +
-                            "\t\t\"status\": \"enabled\",\n" +
-                            "\t\t\"ads\": [{\n" +
-                            "\t\t\t\"adId\": \"IB_03672865163d0311f5cf2143c6cde44cbanner320480\",\n" +
-                            "\t\t\t\"ad\": {\n" +
-                            "\t\t\t\t\"type\": \"infeed\",\n" +
-                            "\t\t\t\t\"subtype\": \"banner\",\n" +
-                            "\t\t\t\t\"data\": {\n" +
-                            "\t\t\t\t\t\"clk\": \"https:\\/\\/play.google.com/store/apps/details?id=com.buzi.phonecleaner\",\n" +
-                            "\t\t\t\t\t\"imp\": \"\",\n" +
-                            "\t\t\t\t\t\"ctv\": \"infeed_static\",\n" +
-                            "\t\t\t\t\t\"w\": 480,\n" +
-                            "\t\t\t\t\t\"h\": 320\n" +
-                            "\t\t\t\t}\n" +
-                            "\t\t\t},\n" +
-                            "\t\t\t\"offering\": {\n" +
-                            "\t\t\t\t\"type\": \"app\",\n" +
-                            "\t\t\t\t\"cpn\": 10357267,\n" +
-                            "\t\t\t\t\"id\": \"com.bigfishgames.fairwaysolitaireuniversalf2pgoogle\"\n" +
+                    "{\n" +
+                            "\t\"name\": \"InFeed1\",\n" +
+                            "\t\"status\": \"enabled\",\n" +
+                            "\t\"ads\": [{\n" +
+                            "\t\t\"adId\": \"IB_2788706f12478adf8ea4041d1b7092eebanner480320\",\n" +
+                            "\t\t\"ad\": {\n" +
+                            "\t\t\t\"type\": \"infeed\",\n" +
+                            "\t\t\t\"subtype\": \"banner\",\n" +
+                            "\t\t\t\"data\": {\n" +
+                            "\t\t\t\t\"clk\": \"https:\\/\\/play.google.com/store/apps/details?id=com.buzi.phonecleaner\",\n" +
+                            "\t\t\t\t\"imp\": \"\",\n" +
+                            "\t\t\t\t\"w\": 480,\n" +
+                            "\t\t\t\t\"h\": 320,\n" +
+                            "\t\t\t\t\"ctv\": \"infeed_static\"\n" +
                             "\t\t\t}\n" +
-                            "\t\t}]\n" +
-                            "\t}");
+                            "\t\t},\n" +
+                            "\t\t\"offering\": {\n" +
+                            "\t\t\t\"type\": \"app\",\n" +
+                            "\t\t\t\"cpn\": 10357267,\n" +
+                            "\t\t\t\"id\": \"com.bigfishgames.fairwaysolitaireuniversalf2pgoogle\"\n" +
+                            "\t\t}\n" +
+                            "\t},\n" +
+                            "\t{\n" +
+                            "\t\t\"adId\": \"IB_2788706f12478adf8ea4041d1b7092eebanner480321\",\n" +
+                            "\t\t\"ad\": {\n" +
+                            "\t\t\t\"type\": \"infeed\",\n" +
+                            "\t\t\t\"subtype\": \"banner\",\n" +
+                            "\t\t\t\"data\": {\n" +
+                            "\t\t\t\t\"clk\": \"https:\\/\\/play.google.com/store/apps/details?id=com.buzi.phonecleaner\",\n" +
+                            "\t\t\t\t\"imp\": \"\",\n" +
+                            "\t\t\t\t\"w\": 480,\n" +
+                            "\t\t\t\t\"h\": 320,\n" +
+                            "\t\t\t\t\"ctv\": \"infeed_static_2\"\n" +
+                            "\t\t\t}\n" +
+                            "\t\t},\n" +
+                            "\t\t\"offering\": {\n" +
+                            "\t\t\t\"type\": \"app\",\n" +
+                            "\t\t\t\"cpn\": 10357267,\n" +
+                            "\t\t\t\"id\": \"com.bigfishgames.fairwaysolitaireuniversalf2pgoogle\"\n" +
+                            "\t\t}\n" +
+                            "\t}]\n" +
+                            "}");
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -122,9 +141,9 @@ public class JsonStubs {
                             "\t\t\t\t\t\t\"data\": {\n" +
                             "\t\t\t\t\t\t\t\"clk\": \"https:\\/\\/play.google.com/store/apps/details?id=com.buzi.phonecleaner\",\n" +
                             "\t\t\t\t\t\t\t\"imp\": \"https:\\/\\/appsrv.display.io\\/imp?msessId=5912bc018884c&tls=18916546_67_3\",\n" +
-                            "\t\t\t\t\t\t\t\"video\": \"infeed_video_1_no_landing_card\",\n" +
+                            "\t\t\t\t\t\t\t\"video\": \"infeed_video_1\",\n" +
                             "\t\t\t\t\t\t\t\"duration\": 15,\n" +
-                            "\t\t\t\t\t\t\t\"landingCard\": \"ic_landing_6\",\n" +
+                            "\t\t\t\t\t\t\t\"landingCard\": \"infeed_video_landscape_1\",\n" +
                             "\t\t\t\t\t\t\t\"vwidth\": 480,\n" +
                             "\t\t\t\t\t\t\t\"vheight\": 320\n" +
                             "\t\t\t\t\t\t}\n" +

@@ -39,7 +39,7 @@ public class InfeedVideoFragment extends BaseFragment implements PagerProvider {
 
     @Override
     public String getFragmentTitle() {
-        return "InFeed Video";
+        return "Feed Video";
     }
 
     @Override
@@ -60,6 +60,6 @@ public class InfeedVideoFragment extends BaseFragment implements PagerProvider {
 
     @Override
     public int getTabIcon() {
-        return R.drawable.ic_tab_infeed_gray;
+        return R.drawable.tab_feed_selector;
     }
 }

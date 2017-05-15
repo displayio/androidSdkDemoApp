@@ -3,6 +3,9 @@
     <color name="dark_theme_color_primary">#175073</color>
     <color name="dark_theme_color_primary_dark">#ff10364e</color>
     <color name="dark_background">#FF202020</color>
+    <color name="light_background">#ffffff</color>
     <color name="dark_header">#163b53</color>
+    <color name="light_header">#ffffff</color>
     <color name="white">#ffffff</color>
+    <color name="light_gray">#6b6b6b</color>
 </resources>

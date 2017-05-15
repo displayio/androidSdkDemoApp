@@ -9,6 +9,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import io.display.displayioshowcase.InterstitialAd;
+import io.display.displayioshowcase.Ads;
 import io.display.displayioshowcase.JsonStubs;
 import io.display.displayioshowcase.R;
 
@@ -42,13 +43,7 @@ public class InterstitialStaticFragment extends BaseFragment implements PagerPro
 
     protected ArrayList<InterstitialAd> createItemsList() {
         rvListItems = new ArrayList<>();
-        rvListItems.add(InterstitialAd.from("ic_inter_1", "1111", R.drawable.ic_inter_1, "ic_inter_1", "320", "480"));
-        rvListItems.add(InterstitialAd.from("ic_inter_2", "1112", R.drawable.ic_inter_2, "ic_inter_2", "320", "480"));
-        rvListItems.add(InterstitialAd.from("ic_inter_3", "1113", R.drawable.ic_inter_3, "ic_inter_3", "320", "480"));
-        rvListItems.add(InterstitialAd.from("ic_inter_4", "1114", R.drawable.ic_inter_4, "ic_inter_4", "320", "480"));
-        rvListItems.add(InterstitialAd.from("ic_inter_5", "1115", R.drawable.ic_inter_5, "ic_inter_5", "320", "480"));
-        rvListItems.add(InterstitialAd.from("ic_inter_6", "1116", R.drawable.ic_inter_6, "ic_inter_6", "320", "480"));
-        return rvListItems;
+        return rvListItems = Ads.getInterstitialStaticItems(rvListItems);
     }
 
     @Override
@@ -58,7 +53,7 @@ public class InterstitialStaticFragment extends BaseFragment implements PagerPro
 
     @Override
     public String getFragmentTitle() {
-        return "Interstitial static";
+        return "IS static";
     }
 
     @Override
@@ -73,7 +68,7 @@ public class InterstitialStaticFragment extends BaseFragment implements PagerPro
 
     @Override
     public int getTabIcon() {
-        return R.drawable.ic_tab_interstitial_gray;
+        return R.drawable.tab_interstitial_selector;
     }
 
     public interface ItemClickListener{
