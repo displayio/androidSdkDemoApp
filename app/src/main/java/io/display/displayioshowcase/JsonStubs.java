@@ -145,7 +145,7 @@ public class JsonStubs {
                             "\t\t\t\t\t\t\t\"duration\": 15,\n" +
                             "\t\t\t\t\t\t\t\"landingCard\": \"infeed_video_landscape_1\",\n" +
                             "\t\t\t\t\t\t\t\"vwidth\": 480,\n" +
-                            "\t\t\t\t\t\t\t\"vheight\": 320\n" +
+                            "\t\t\t\t\t\t\t\"vheight\": 280\n" +
                             "\t\t\t\t\t\t}\n" +
                             "\t\t\t\t\t},\n" +
                             "\t\t\t\t\t\"offering\": {\n" +
