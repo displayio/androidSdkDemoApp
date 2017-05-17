@@ -47,7 +47,7 @@
         android:gravity="center_vertical|start"
         android:text="Display.io is an Android Monetization platform connecting to mobile app developers via SDK or API.
         \n\nThrough our audience network, we are able to target valuable cohorts of users who spend both time and money in our advertisers apps.
-        \n\nPublishers using our SDK will benefit from higher eCPMs and higher user-LTVs from through our crisp, targeted, rich-media ad formats.">
+        \n\nPublishers using our SDK will benefit from higher eCPMs and higher user-LTVs through our crisp, targeted, rich-media ad formats.">
 
     </TextView>
 </RelativeLayout>

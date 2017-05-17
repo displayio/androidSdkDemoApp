@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         if (supportActionBar != null) {
             supportActionBar.setDisplayHomeAsUpEnabled(true);
             supportActionBar.setHomeButtonEnabled(true);
-            supportActionBar.setHomeAsUpIndicator(R.drawable.ic_action_ic_displayio);
+            supportActionBar.setHomeAsUpIndicator(R.drawable.ic_displayio_toolbar);
             supportActionBar.setTitle("");
         }
     }

@@ -54,8 +54,9 @@ public class JsonStubs {
                             "\t\t\t\t\t\t\t\"clk\": \"https:\\/\\/play.google.com/store/apps/details?id=com.buzi.phonecleaner\",\n" +
                             "\t\t\t\t\t\t\t\"imp\": \"https:\\/\\/appsrv.display.io\\/imp?msessId=5912bc018884c&tls=18916546_67_3\",\n" +
                             "\t\t\t\t\t\t\t\"video\": \"interstitial_video_1_landscape_no_landing_card\",\n" +
-                            "\t\t\t\t\t\t\t\"duration\": 15,\n" +
+                            "\t\t\t\t\t\t\t\"duration\": 3,\n" +
                             "\t\t\t\t\t\t\t\"landingCard\": \"http:\\/\\/cdn.display.io\\/ctv\\/asset\\/interstitial_video_landing.png\",\n" +
+                            "\t\t\t\t\t\t\t\"skippableIn\": \"3\",\n" +
                             "\t\t\t\t\t\t\t\"w\": 480,\n" +
                             "\t\t\t\t\t\t\t\"h\": 320\n" +
                             "\t\t\t\t\t\t}\n" +

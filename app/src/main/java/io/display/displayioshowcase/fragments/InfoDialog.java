@@ -17,7 +17,6 @@ public class InfoDialog extends DialogFragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-        getDialog().setTitle("Title!");
         View v = inflater.inflate(R.layout.dialog_fragment, null);
         v.findViewById(R.id.close_btn).setOnClickListener(new View.OnClickListener() {
             @Override
