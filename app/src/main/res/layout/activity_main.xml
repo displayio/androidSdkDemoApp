@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="io.display.displayioshowcase.MainActivity">
+    tools:context="io.displayio.showcase.MainActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/newspapers_appbar"
@@ -42,7 +42,7 @@
             android:background="@color/dark_background"
             app:tabTextAppearance="@style/TabTextAppearance"
             app:tabTextColor="@color/light_gray"
-            app:tabSelectedTextColor="@color/dark_theme_color_primary"/>
+            app:tabSelectedTextColor="@android:color/white"/>
     </android.support.v4.view.ViewPager>
 
 </android.support.constraint.ConstraintLayout>
