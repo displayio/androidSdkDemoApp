@@ -11,6 +11,7 @@ public class InterstitialAd {
     private String placementId;
     private String width;
     private String height;
+    private String redirectLink;
 
     public String getLandingResName() {
         return landingResName;
@@ -60,9 +61,18 @@ public class InterstitialAd {
         this.height = height;
     }
 
-    public static InterstitialAd from(String landingResName, String placementId, int tileRes, String videoResName, String width, String height) {
+    public String getRedirectLink() {
+        return redirectLink;
+    }
+
+    public void setRedirectLink(String redirectLink) {
+        this.redirectLink = redirectLink;
+    }
+
+    public static InterstitialAd from(String landingResName, String redirectLink, String placementId, int tileRes, String videoResName, String width, String height) {
         InterstitialAd interstitialAd = new InterstitialAd();
         interstitialAd.setLandingResName(landingResName);
+        interstitialAd.setRedirectLink(redirectLink);
         interstitialAd.setPlacementId(placementId);
         interstitialAd.setTileRes(tileRes);
         interstitialAd.setVideoResName(videoResName);
@@ -70,4 +80,5 @@ public class InterstitialAd {
         interstitialAd.setHeight(height);
         return interstitialAd;
     }
+
 }

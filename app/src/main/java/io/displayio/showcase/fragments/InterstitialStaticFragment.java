@@ -32,6 +32,7 @@ public class InterstitialStaticFragment extends BaseFragment implements PagerPro
             json = new JsonStubs().getInterstitialStaticJsonStub();
             ((JSONObject)json.getJSONArray("ads").get(0)).getJSONObject("ad").getJSONObject("data")
                     .put("ctv", item.getVideoResName())
+                    .put("clk", item.getRedirectLink())
                     .put("w", item.getWidth())
                     .put("h", item.getHeight());
         } catch (JSONException e) {

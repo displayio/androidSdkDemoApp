@@ -60,6 +60,7 @@ public class InterstitialVideoFragment extends BaseFragment implements PagerProv
             json = new JsonStubs().getInterstitialVideoJsonStub();
             ((JSONObject)json.getJSONArray("ads").get(0)).getJSONObject("ad").getJSONObject("data")
                     .put("video", item.getVideoResName())
+                    .put("clk", item.getRedirectLink())
                     .put("landingCard", item.getLandingResName());
         } catch (JSONException e) {
             e.printStackTrace();
