@@ -14,6 +14,11 @@ import io.displayio.showcase.R;
  */
 
 public class InfoDialog extends DialogFragment {
+    private OnCloseListener onCloseListener;
+
+    public void setOnClickListener(OnCloseListener onCloseListener){
+        this.onCloseListener = onCloseListener;
+    }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
@@ -29,5 +34,11 @@ public class InfoDialog extends DialogFragment {
 
     public void onDismiss(DialogInterface dialog) {
         super.onDismiss(dialog);
+        if(onCloseListener != null)
+            onCloseListener.onClosed();
+    }
+
+    public interface OnCloseListener{
+        void onClosed();
     }
 }

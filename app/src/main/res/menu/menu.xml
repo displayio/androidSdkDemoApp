@@ -5,6 +5,6 @@
         android:id="@+id/menu_info"
         android:animateLayoutChanges="true"
         android:title="info"
-        android:icon="@drawable/ic_action_info"
+        android:icon="@drawable/ic_action_arrow_down"
         app:showAsAction="always"/>
 </menu>

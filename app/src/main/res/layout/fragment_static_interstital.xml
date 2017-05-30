@@ -9,7 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/list_static_items"
-        android:layout_marginBottom="56dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp" />
 

@@ -18,10 +18,11 @@ import io.displayio.showcase.fragments.FragmentList;
 import io.displayio.showcase.fragments.InfoDialog;
 import io.displayio.showcase.fragments.PagerProvider;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
     private DisplayPageAdapter homePageAdapter;
     private ViewPager mPager;
     private List<PagerProvider> mProviderList;
+    private Menu menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,18 +31,18 @@ public class MainActivity extends AppCompatActivity {
 
         mPager = (ViewPager) findViewById(R.id.entries_pager);
 
-        configureToolbar((Toolbar)findViewById(R.id.display_toolbar), "Display.io");
+        configureToolbar((Toolbar)findViewById(R.id.display_toolbar));
 
         configurePager();
     }
 
-    protected void configureToolbar(Toolbar toolbar, String title) {
+    protected void configureToolbar(Toolbar toolbar) {
         setSupportActionBar(toolbar);
         ActionBar supportActionBar = getSupportActionBar();
         if (supportActionBar != null) {
             supportActionBar.setDisplayHomeAsUpEnabled(true);
             supportActionBar.setHomeButtonEnabled(true);
-            supportActionBar.setHomeAsUpIndicator(R.drawable.ic_displayio_toolbar);
+            supportActionBar.setHomeAsUpIndicator(R.drawable.ic_action_display_toolbar_logo);
             supportActionBar.setTitle("");
         }
     }
@@ -69,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
         setUpTabIcons();
+        this.menu = menu;
         return true;
     }
 
@@ -84,6 +86,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void displayInfoDialog() {
-        new InfoDialog().show(getFragmentManager(), "dlg1");
+        InfoDialog info = new InfoDialog();
+        info.setOnClickListener(new InfoDialog.OnCloseListener() {
+            @Override
+            public void onClosed() {
+                showArrowDown();
+            }
+        });
+        info.show(getFragmentManager(), "dlg1");
+
+        showArrowUp();
+    }
+
+    public void showArrowDown() {
+        if(menu != null)
+            menu.findItem(R.id.menu_info).setIcon(R.drawable.ic_action_arrow_down);
+    }
+
+    public void showArrowUp() {
+        if(menu != null)
+            menu.findItem(R.id.menu_info).setIcon(R.drawable.ic_action_arrow_up);
     }
 }
