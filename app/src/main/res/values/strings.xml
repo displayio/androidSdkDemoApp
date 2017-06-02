@@ -1,3 +1,81 @@
 <resources>
     <string name="app_name">Display.io Showcase</string>
+
+    <string-array name="display_io">
+        <item>M32.18,14a30.75,30.75,0,0,0-10.31,1.78l5.5,13.27a16.49,16.49,0,1,1,0,31.55L21.86,73.9A30.82,30.82,0,0,0,58.77,60.44,28.53,28.53,0,0,1,42.93,75.68H60a3,3,0,0,0,3-3V5a3,3,0,0,0-3-3H48.37a3,3,0,0,0-3,3v9.66a28.55,28.55,0,0,1,14,15.69A30.82,30.82,0,0,0,32.18,14Z</item>
+        <item>M20.09,65.83,L12.54,65.76,L15.53,62.78,L20.09,65.83Z</item>
+        <item>M15.53,26.93,L12.54,23.94,L20.09,23.88,L15.53,26.93Z</item>
+        <item>M7.73,43.95,L3.51,43.95 L 8.8 38.57 L 7.73 43.95 Z</item>
+        <item>M5.19,43.25h2l0.5-2.5Z</item>
+        <item>M14.25,28.21 L 11.2 32.77 L 11.27 25.22 L 14.25 28.21 Z</item>
+        <item>M12,26.91l0,3.5,1.42-2.12Z</item>
+        <item>M8.69 53.6 L 4.36 55.4 L 2.83 47.64 L 8.69 53.6 Z</item>
+        <item>M4,49.82l0.91,4.6,2.56-1.06Z</item>
+        <item>M8.69 36.1 L 2.83 42.06 L 4.36 34.31 L 8.69 36.1 Z</item>
+        <item>M4.89,35.29L4,39.89l3.47-3.53Z</item>
+        <item>M9.38 34.43 L 5.04 32.64 L 9.45 25.86 L 9.38 34.43 Z</item>
+        <item>M6.1,32.31l2.59,1.07,0-5.11Z</item>
+        <item>M14.25 61.5 L 11.27 64.49 L 11.2 56.94 L 14.25 61.5 Z</item>
+        <item>M11.93,59.3l0,3.5,1.39-1.39Z</item>
+        <item>M7.73 45.76 L 8.8 51.14 L 3.51 45.76 L 7.73 45.76 Z</item>
+        <item>M21.76 67.65 L 19.97 71.97 L 13.39 67.58 L 21.76 67.65 Z</item>
+        <item>M9.45 63.63 L 5.05 57.06 L 9.38 55.27 L 9.45 63.63 Z</item>
+        <item>M6.12,57.39l2.61,3.9,0-5Z</item>
+        <item>M21.76 22.06 L 13.18 22.13 L 19.96 17.72 L 21.76 22.06 Z</item>
+        <item>M16.6 37.42 L 13.13 35.99 L 18.46 34.64 L 16.6 37.42 Z</item>
+        <item>M15.37,36.15l1,0.4,0.52-.77Z</item>
+        <item>M18.75 57 L 15.55 60.2 L 12.33 55.38 L 18.75 57 Z</item>
+        <item>M13.93,56.51l1.73,2.58,1.71-1.71Z</item>
+        <item>M15.91 50.61 L 12.44 52.05 L 15.26 47.33 L 15.91 50.61 Z</item>
+        <item>M14.92,49.27l-0.78,1.31,1-.4Z</item>
+        <item>M14.1 43.95 L 9.57 43.95 L 10.7 38.26 L 14.1 43.95 Z</item>
+        <item>M14.1 45.76 L 10.7 51.45 L 9.57 45.76 L 14.1 45.76 Z</item>
+        <item>M20.03 31.43 L 16.83 28.23 L 21.65 25 L 20.03 31.43 Z</item>
+        <item>M21.65 64.7 L 16.83 61.48 L 20.03 58.28 L 21.65 64.7 Z</item>
+        <item>M18.46 55.06 L 13.13 53.72 L 16.6 52.28 L 18.46 55.06 Z</item>
+        <item>M24.75 60.43 L 23.31 63.9 L 21.97 58.57 L 24.75 60.43 Z</item>
+        <item>M23.1,60.17l0.38,1.49,0.4-1Z</item>
+        <item>M18.75 32.71 L 12.33 34.33 L 15.55 29.51 L 18.75 32.71 Z</item>
+        <item>M15.91 39.09 L 15.26 42.37 L 12.44 37.66 L 15.91 39.09 Z</item>
+        <item>M24.75 29.27 21.97 31.14 23.31 25.81 24.75 29.27Z</item>
+    </string-array>
+
+    <integer-array name="display_io_colors">
+        <item>@android:color/white</item>
+        <item>@color/_1</item>
+        <item>@color/_2</item>
+        <item>@color/_3</item>
+        <item>@color/_4</item>
+        <item>@color/_5</item>
+        <item>@color/_6</item>
+        <item>@color/_7</item>
+        <item>@color/_8</item>
+        <item>@color/_9</item>
+        <item>@color/_10</item>
+        <item>@color/_11</item>
+        <item>@color/_12</item>
+        <item>@color/_13</item>
+        <item>@color/_14</item>
+        <item>@color/_15</item>
+        <item>@color/_16</item>
+        <item>@color/_17</item>
+        <item>@color/_18</item>
+        <item>@color/_19</item>
+        <item>@color/_20</item>
+        <item>@color/_21</item>
+        <item>@color/_22</item>
+        <item>@color/_23</item>
+        <item>@color/_24</item>
+        <item>@color/_25</item>
+        <item>@color/_26</item>
+        <item>@color/_27</item>
+        <item>@color/_28</item>
+        <item>@color/_29</item>
+        <item>@color/_30</item>
+        <item>@color/_31</item>
+        <item>@color/_32</item>
+        <item>@color/_33</item>
+        <item>@color/_34</item>
+        <item>@color/_35</item>
+    </integer-array>
 </resources>

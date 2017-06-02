@@ -1,9 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#FF202020"
     tools:context="io.displayio.showcase.SplashDisplay">
 
-</android.support.constraint.ConstraintLayout>
+    <com.jaredrummler.android.widget.AnimatedSvgView
+        android:id="@+id/animated_svg_view"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        app:animatedSvgFillColors="@array/display_io_colors"
+        app:animatedSvgFillStart="1200"
+        app:animatedSvgFillTime="1000"
+        app:animatedSvgGlyphStrings="@array/display_io"
+        app:animatedSvgImageSizeX="75"
+        app:animatedSvgImageSizeY="75"
+        app:animatedSvgTraceMarkerLength="50"
+        app:animatedSvgTraceTime="2000"
+        app:animatedSvgTraceTimePerGlyph="1000"/>
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/display_io_logo_title_white"
+        android:contentDescription="@string/app_name"
+        android:id="@+id/display_title"/>
+</LinearLayout>

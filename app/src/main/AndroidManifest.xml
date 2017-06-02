@@ -16,7 +16,8 @@
         android:theme="@style/AppTheme">
         <activity android:name="io.displayio.showcase.MainActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name="io.displayio.showcase.SplashDisplay" >
+        <activity android:name="io.displayio.showcase.SplashDisplay"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
