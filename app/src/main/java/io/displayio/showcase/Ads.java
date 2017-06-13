@@ -21,7 +21,7 @@ public class Ads {
     }
 
     public static ArrayList<InterstitialAd> getInterstitialStaticItems(ArrayList<InterstitialAd> rvListItems) {
-        rvListItems.add(InterstitialAd.from("ic_inter_1", "https://play.google.com/store/apps/details?id=com.naturalmotion.dawnoftitans", "1111", R.drawable.ic_inter_1, "ic_inter_1", "320", "480"));
+        rvListItems.add(InterstitialAd.from("ic_inter_1", "https://play.google.com/store/apps/details?id=com.bitmango.go.make7hexapuzzle", "1111", R.drawable.ic_inter_1, "ic_inter_1", "320", "480"));
         rvListItems.add(InterstitialAd.from("ic_inter_2", "https://play.google.com/store/apps/details?id=com.heroesofchaos.ggplay.koramgame.ru", "1112", R.drawable.ic_inter_2, "ic_inter_2", "320", "480"));
         rvListItems.add(InterstitialAd.from("ic_inter_3", "https://play.google.com/store/apps/details?id=com.bigfishgames.fairwaysolitaireuniversalf2pgoogle", "1113", R.drawable.ic_inter_3, "ic_inter_3", "320", "480"));
         rvListItems.add(InterstitialAd.from("ic_inter_4", "https://play.google.com/store/apps/details?id=com.snailgameusa.swordofshadow", "1114", R.drawable.ic_inter_4, "ic_inter_4", "320", "480"));
