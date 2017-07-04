@@ -64,7 +64,7 @@ public abstract class BaseFragment extends Fragment{
     }
 
     protected void setItemsList(View view) {
-        rvList = (RecyclerView) view.findViewById(getRvItemsList());
+        rvList = view.findViewById(getRvItemsList());
 
         rvListItems = createItemsList();
         mLinearLM = new GridLayoutManager(getContext(), 1);
@@ -84,7 +84,7 @@ public abstract class BaseFragment extends Fragment{
     }
 
     protected void setList(View view) {
-        rvList = (RecyclerView) view.findViewById(getRvList());
+        rvList = view.findViewById(getRvList());
 
         mFeedItems = createList();
         mFeedItems = insertAds(mFeedItems, getAdPosition());
