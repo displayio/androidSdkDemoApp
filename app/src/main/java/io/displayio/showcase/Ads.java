@@ -9,14 +9,14 @@ import java.util.ArrayList;
 public class Ads {
 
     public static ArrayList<InterstitialAd> getInterstitialVideoItems(ArrayList<InterstitialAd> rvListItems) {
-        rvListItems.add(InterstitialAd.from("ic_landing_1", "https://play.google.com/store/apps/details?id=com.nousguide.android.rbtv", "1121", R.drawable.tile_1, "video_1", "480", "320"));
-        rvListItems.add(InterstitialAd.from("ic_landing_2", "https://play.google.com/store/apps/details?id=com.audible.application", "1122", R.drawable.tile_2, "video_2", "480", "320"));
-        rvListItems.add(InterstitialAd.from("ic_landing_3", "https://play.google.com/store/apps/details?id=com.ss.android.article.tbvideo.cn", "1123", R.drawable.tile_3, "video_3", "480", "320"));
-        rvListItems.add(InterstitialAd.from("ic_landing_4", "https://play.google.com/store/apps/details?id=com.cmplay.tiles2", "1124", R.drawable.tile_4, "video_4", "480", "320"));
-        rvListItems.add(InterstitialAd.from("ic_landing_5", "https://play.google.com/store/apps/details?id=com.d3p.mpq", "1125", R.drawable.tile_5, "video_5", "480", "320"));
-        rvListItems.add(InterstitialAd.from("ic_landing_6", "https://play.google.com/store/apps/details?id=com.craftsvilla.app", "1126", R.drawable.tile_6, "video_6", "480", "320"));
         rvListItems.add(InterstitialAd.from("ic_landing_7", "https://play.google.com/store/apps/details?id=com.playrix.fishdomdd.gplay", "1127", R.drawable.tile_7, "video_7", "480", "320"));
         rvListItems.add(InterstitialAd.from("ic_landing_8", "https://play.google.com/store/apps/details?id=com.uc.browser.en", "1128", R.drawable.tile_8, "video_8", "480", "320"));
+        rvListItems.add(InterstitialAd.from("ic_landing_2", "https://play.google.com/store/apps/details?id=com.audible.application", "1122", R.drawable.tile_2, "video_2", "480", "320"));
+        rvListItems.add(InterstitialAd.from("ic_landing_1", "https://play.google.com/store/apps/details?id=com.king.paradisebay", "1124", R.drawable.tile_1, "video_1", "480", "320"));
+        rvListItems.add(InterstitialAd.from("ic_landing_3", "https://play.google.com/store/apps/details?id=com.voonik.android", "1123", R.drawable.tile_3, "video_3", "480", "320"));
+        rvListItems.add(InterstitialAd.from("ic_landing_4", "https://play.google.com/store/apps/details?id=com.cmplay.tiles2", "1124", R.drawable.tile_4, "video_4", "480", "320"));
+        rvListItems.add(InterstitialAd.from("ic_landing_5", "https://play.google.com/store/apps/details?id=com.d3p.mpq", "1125", R.drawable.tile_5, "video_5", "480", "320"));
+        rvListItems.add(InterstitialAd.from("ic_landing_6", "https://play.google.com/store/apps/details?id=com.dianxinos.dxbs", "1126", R.drawable.tile_6, "video_6", "480", "320"));
         return rvListItems;
     }
 

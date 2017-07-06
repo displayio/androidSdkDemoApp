@@ -140,7 +140,7 @@ public class JsonStubs {
                             "\t\t\t\t\t\t\"type\": \"infeed\",\n" +
                             "\t\t\t\t\t\t\"subtype\": \"video\",\n" +
                             "\t\t\t\t\t\t\"data\": {\n" +
-                            "\t\t\t\t\t\t\t\"clk\": \"https:\\/\\/play.google.com/store/apps/details?id=com.reporty.reporty\",\n" +
+                            "\t\t\t\t\t\t\t\"clk\": \"https:\\/\\/play.google.com/store/apps/details?id=com.nousguide.android.rbtv\",\n" +
                             "\t\t\t\t\t\t\t\"imp\": \"https:\\/\\/appsrv.display.io\\/imp?msessId=5912bc018884c&tls=18916546_67_3\",\n" +
                             "\t\t\t\t\t\t\t\"video\": \"infeed_video_1\",\n" +
                             "\t\t\t\t\t\t\t\"duration\": 15,\n" +
