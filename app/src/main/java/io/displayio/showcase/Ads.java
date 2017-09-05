@@ -21,13 +21,12 @@ public class Ads {
     }
 
     public static ArrayList<InterstitialAd> getInterstitialStaticItems(ArrayList<InterstitialAd> rvListItems) {
-        rvListItems.add(InterstitialAd.from("ic_inter_2", "https://play.google.com/store/apps/details?id=com.king.farmheroessaga", "1112", R.drawable.ic_inter_2, "ic_inter_2", "320", "480"));
-        rvListItems.add(InterstitialAd.from("ic_inter_3", "https://play.google.com/store/apps/details?id=com.ubercab.eats", "1113", R.drawable.ic_inter_3, "ic_inter_3", "320", "480"));
-        rvListItems.add(InterstitialAd.from("ic_inter_4", "https://play.google.com/store/apps/details?id=com.hbo.hbonow", "1114", R.drawable.ic_inter_4, "ic_inter_4", "320", "480"));
-        rvListItems.add(InterstitialAd.from("ic_inter_5", "https://play.google.com/store/apps/details?id=net.skyscanner.android.main", "1115", R.drawable.ic_inter_5, "ic_inter_5", "320", "480"));
-        rvListItems.add(InterstitialAd.from("ic_inter_6", "https://play.google.com/store/apps/details?id=com.king.alphabettysaga", "1116", R.drawable.ic_inter_6, "ic_inter_6", "320", "480"));
-        rvListItems.add(InterstitialAd.from("ic_inter_1", "https://play.google.com/store/apps/details?id=com.bitmango.go.make7hexapuzzle", "1111", R.drawable.ic_inter_1, "ic_inter_1", "320", "480"));
-//        rvListItems.add(InterstitialAd.from("ic_inter_6", "https://play.google.com/store/apps/details?id=com.supercell.clashroyale", "1116", R.drawable.ic_inter_6, "ic_inter_6", "320", "480"));
+        rvListItems.add(InterstitialAd.from("ic_inter_1", "https://play.google.com/store/apps/details?id=com.king.candycrushsodasaga", "1111", R.drawable.ic_inter_1, "ic_inter_1", "320", "480"));
+        rvListItems.add(InterstitialAd.from("ic_inter_2", "https://play.google.com/store/apps/details?id=com.zeptolab.cats.google", "1112", R.drawable.ic_inter_2, "ic_inter_2", "320", "480"));
+        rvListItems.add(InterstitialAd.from("ic_inter_3", "https://play.google.com/store/apps/details?id=es.socialpoint.DragonCity", "1113", R.drawable.ic_inter_3, "ic_inter_3", "320", "480"));
+        rvListItems.add(InterstitialAd.from("ic_inter_4", "https://play.google.com/store/apps/details?id=net.skyscanner.android.main", "1114", R.drawable.ic_inter_4, "ic_inter_4", "320", "480"));
+        rvListItems.add(InterstitialAd.from("ic_inter_5", "https://play.google.com/store/apps/details?id=com.ubercab", "1115", R.drawable.ic_inter_5, "ic_inter_5", "320", "480"));
+        rvListItems.add(InterstitialAd.from("ic_inter_6", "https://play.google.com/store/apps/details?id=com.hbo.hbonow", "1116", R.drawable.ic_inter_6, "ic_inter_6", "320", "480"));
         return rvListItems;
     }
 
